@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_track_app/routes/routes.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
@@ -9,7 +10,7 @@ class AppDrawer extends StatelessWidget {
         children: <Widget>[
           _createHeader(),
           _createDrawerItem(icon: Icons.home, text: 'Contacts'),
-          _createDrawerItem(icon: Icons.card_travel, text: 'Position'),
+          _createDrawerItem(icon: Icons.card_travel, text: 'Position',),
           _createDrawerItem(icon: Icons.history, text: 'History'),
           _createDrawerItem(icon: Icons.cake_sharp, text: 'Commands'),
           _createDrawerItem(icon: Icons.now_wallpaper, text: 'Authors'),
@@ -28,6 +29,9 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
+  navigateTo(context, routeName){
+    return Navigator.pushReplacementNamed(context, routeName);
+  }
   Widget _createHeader() {
     return DrawerHeader(
         margin: EdgeInsets.zero,
