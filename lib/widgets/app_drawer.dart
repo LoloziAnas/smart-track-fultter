@@ -15,10 +15,12 @@ class AppDrawer extends StatelessWidget {
           _createDrawerItem(icon: Icons.now_wallpaper, text: 'Authors'),
           _createDrawerItem(icon: Icons.stars, text: 'Useful Links'),
           Divider(),
-          _createDrawerItem(icon: Icons.bug_report, text: 'Report an issue'),
+          _createDrawerItem(icon: Icons.logout, text: 'Logout'),
           Divider(),
           ListTile(
-            title: Text('0.0.1'),
+            title: Text('Version 0.0.1',
+                style: TextStyle(
+                    color: Colors.orange, fontStyle: FontStyle.italic)),
             onTap: () {},
           ),
         ],
@@ -31,14 +33,16 @@ class AppDrawer extends StatelessWidget {
         margin: EdgeInsets.zero,
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('asset/images/flutterr-logo.png'))),
+          gradient: LinearGradient(colors: [Colors.grey, Colors.orange])
+            /*image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage('asset/images/logo-innotech.png'),
+        )*/),
         child: Stack(children: <Widget>[
           Positioned(
               bottom: 12.0,
               left: 16.0,
-              child: Text("Flutter Step-by-Step",
+              child: Text("LOLOZI Anas",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20.0,
@@ -54,7 +58,10 @@ class AppDrawer extends StatelessWidget {
           Icon(icon, color: Colors.orange),
           Padding(
             padding: EdgeInsets.only(left: 8.0),
-            child: Text(text, style: TextStyle(fontSize: 15.0, color: Colors.grey),),
+            child: Text(
+              text,
+              style: TextStyle(fontSize: 15.0, color: Colors.grey),
+            ),
           )
         ],
       ),
