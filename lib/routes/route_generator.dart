@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smart_track_app/login/login.dart';
-import 'package:smart_track_app/main.dart';
 import 'package:smart_track_app/pages/command_page.dart';
 import 'package:smart_track_app/pages/dashboard_page.dart';
 import 'package:smart_track_app/pages/history_page.dart';
@@ -8,7 +7,7 @@ import 'package:smart_track_app/pages/position_page.dart';
 import 'package:smart_track_app/routes/routes.dart';
 class RouteGenerator{
   static Route<dynamic> generateRoute(RouteSettings settings){
-    final args = settings.arguments;
+    /*final args = settings.arguments;*/
     switch(settings.name){
       case '/':
         return MaterialPageRoute(builder: (context) => Login());

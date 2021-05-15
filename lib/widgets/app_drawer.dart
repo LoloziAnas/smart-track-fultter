@@ -11,14 +11,26 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           _createUserAccountDrawerHeader(accountName, accountEmail),
-          _createDrawerItem(icon: Icons.home, text: 'Dashboard',onTap: navigateTo(context,Routes.dashboard)),
+          _createDrawerItem(icon: Icons.home, text: 'Dashboard',onTap:(){
+            Navigator.pop(context);
+            Navigator.pushNamed(context, Routes.dashboard);
+          }),
           _createDrawerItem(
             icon: Icons.card_travel,
-            text: 'Position',onTap: navigateTo(context,Routes.position)
+            text: 'Position',onTap: (){
+            Navigator.pop(context);
+            Navigator.pushNamed(context, Routes.position);
+          }
           ),
-          _createDrawerItem(icon: Icons.history, text: 'History',onTap: navigateTo(context,Routes.history)),
-          _createDrawerItem(icon: Icons.cake_sharp, text: 'Command',onTap: navigateTo(context,Routes.command)),
-          _createDrawerItem(icon: Icons.now_wallpaper, text: 'Contact',onTap: navigateTo(context,Routes.command)),
+          _createDrawerItem(icon: Icons.history, text: 'History',onTap: (){
+            Navigator.pop(context);
+            Navigator.pushNamed(context, Routes.history);
+          }),
+          _createDrawerItem(icon: Icons.cake_sharp, text: 'Command',onTap: (){
+            Navigator.pop(context);
+            Navigator.pushNamed(context, Routes.command);
+          }),
+          _createDrawerItem(icon: Icons.now_wallpaper, text: 'Contact',),
           Divider(),
           _createDrawerItem(icon: Icons.stars, text: 'About Us'),
           Divider(),
