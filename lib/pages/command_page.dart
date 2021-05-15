@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_track_app/widgets/app_drawer.dart';
 
-class PositionPage extends StatelessWidget {
+class CommandPage extends StatelessWidget {
   static const String routeName = '/command';
   @override
   Widget build(BuildContext context) {

@@ -1,20 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:smart_track_app/pages/history_page.dart';
 import 'package:smart_track_app/routes/routes.dart';
 
 class AppDrawer extends StatelessWidget {
+  String accountName = "Anas LOLOZI", accountEmail = "anas.lolozi@gmail.com";
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          _createHeader(),
-          _createDrawerItem(icon: Icons.home, text: 'Contacts'),
-          _createDrawerItem(icon: Icons.card_travel, text: 'Position',),
-          _createDrawerItem(icon: Icons.history, text: 'History'),
-          _createDrawerItem(icon: Icons.cake_sharp, text: 'Commands'),
-          _createDrawerItem(icon: Icons.now_wallpaper, text: 'Authors'),
-          _createDrawerItem(icon: Icons.stars, text: 'Useful Links'),
+          _createUserAccountDrawerHeader(accountName, accountEmail),
+          _createDrawerItem(icon: Icons.home, text: 'Dashboard',onTap: navigateTo(context,Routes.dashboard)),
+          _createDrawerItem(
+            icon: Icons.card_travel,
+            text: 'Position',onTap: navigateTo(context,Routes.position)
+          ),
+          _createDrawerItem(icon: Icons.history, text: 'History',onTap: navigateTo(context,Routes.history)),
+          _createDrawerItem(icon: Icons.cake_sharp, text: 'Command',onTap: navigateTo(context,Routes.command)),
+          _createDrawerItem(icon: Icons.now_wallpaper, text: 'Contact',onTap: navigateTo(context,Routes.command)),
+          Divider(),
+          _createDrawerItem(icon: Icons.stars, text: 'About Us'),
           Divider(),
           _createDrawerItem(icon: Icons.logout, text: 'Logout'),
           Divider(),
@@ -29,19 +35,39 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  navigateTo(context, routeName){
-    return Navigator.pushReplacementNamed(context, routeName);
+  navigateTo(context, routeName) {
+    Navigator.pop(context);
+    Navigator.pushNamed(context, routeName);
   }
+
+  Widget _createUserAccountDrawerHeader(String accountName, String accountEmail) {
+    List<String> fullName = accountName.toString().split(" ");
+    String firstName = fullName[0], lastName =  fullName[1];
+    return UserAccountsDrawerHeader(
+      accountName: Text(accountName),
+      accountEmail: Text(accountEmail),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(colors: [Colors.grey, Colors.orange]),
+      ),
+      currentAccountPicture: CircleAvatar(
+        backgroundColor: Colors.white,
+        child: Text(firstName.substring(0,1).toUpperCase() + " " +lastName.substring(0,1).toUpperCase(), style: TextStyle(fontWeight: FontWeight.bold), ),
+      ),
+
+    );
+  }
+
   Widget _createHeader() {
     return DrawerHeader(
         margin: EdgeInsets.zero,
         padding: EdgeInsets.zero,
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [Colors.grey, Colors.orange])
+            gradient: LinearGradient(colors: [Colors.grey, Colors.orange])
             /*image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage('asset/images/logo-innotech.png'),
-        )*/),
+        )*/
+            ),
         child: Stack(children: <Widget>[
           Positioned(
               bottom: 12.0,

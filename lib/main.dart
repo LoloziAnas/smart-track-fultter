@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smart_track_app/login/login.dart';
+import 'package:smart_track_app/pages/command_page.dart';
+import 'package:smart_track_app/pages/dashboard_page.dart';
+import 'package:smart_track_app/pages/position_page.dart';
+import 'package:smart_track_app/routes/route_generator.dart';
+import 'package:smart_track_app/routes/routes.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,8 +18,15 @@ class MyApp extends StatelessWidget {
       title: 'Smart Track',
       theme: ThemeData(
         primarySwatch: Colors.orange,
+
       ),
-      home: Login(),
+      /*initialRoute: '/',
+      onGenerateRoute: RouteGenerator.generateRoute,*/
+      routes: {
+        Routes.dashboard: (context) => DashboardPage(),
+        Routes.position: (context) => PositionPage(),
+        Routes.command: (context) => CommandPage(),
+      },
     );
   }
 }
